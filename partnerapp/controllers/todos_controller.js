@@ -11,28 +11,24 @@ controller.index = function(req, res) {
  });
 };
 
-// controller.index = function(req, res, next) {
-//   res.json('HOLLA HOLLA', { title: 'WELCOME BABY' });
-// };
+controller.create = function(req, res) {
 
-// controller.create = function(req, res) {
+ var todo = new Todo({
+   title: req.body.title,
+   priority: req.body.priority,
+   difficulty: req.body.difficulty,
+   isComplete: req.body.isComplete,
+   createdAt: req.body.createdAt,
+   updatedAt: req.body.updatedAt,
+   completedOn: req.body.completedOn,
+ });
 
-//  var todo = new Todo({
-//    title: req.body.title,
-//    priority: req.body.priority,
-//    difficulty: req.body.difficulty,
-//    isComplete: req.body.isComplete,
-//    createdAt: req.body.createdAt,
-//    updatedAt: req.body.updatedAt,
-//    completedOn: req.body.completedOn,
-//  });
+ todo.save(function(err) {
+    if (err) throw err;
+    res.json(todo)
+  });
 
-//  todo.save(function(err) {
-//     if (err) throw err;
-//     res.redirect('/');
-//   });
-
-// };
+};
 
 // controller.destroy = function(req, res){
 //  var id = req.params.id;

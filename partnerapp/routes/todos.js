@@ -2,16 +2,15 @@ var express = require('express');
 var router = express.Router();
 
 var todosController = require('../controllers/todos_controller.js');
-console.log(todosController);
 
 router.route('/')
- .get(todosController.index);
-//  .post(todosController.create);
+ .get(todosController.index)
+ .post(todosController.create);
 
-// router.route('/:id')
+router.route('/:id')
 //  .delete(todosController.destroy)
 //  // .get(todosController.show)
-//  .patch(todosController.update);
+ .patch(todosController.update);
 
 // router.route('/:id')
 //  .delete(todosController.destroy)
