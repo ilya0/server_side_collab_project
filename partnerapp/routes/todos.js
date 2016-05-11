@@ -8,9 +8,9 @@ router.route('/')
  .post(todosController.create);
 
 router.route('/:id')
-//  .delete(todosController.destroy)
-//  // .get(todosController.show)
- .patch(todosController.update);
+ .patch(todosController.update)
+ .get(todosController.show)
+ .delete(todosController.destroy);
 
 // router.route('/:id')
 //  .delete(todosController.destroy)
